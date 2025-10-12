@@ -10,12 +10,12 @@ public class Library{
         Books book5 = new Books();
 
         Books.greeting();
-        while(true){
+        while(true){  // Нужно для того, что бы пользователь сразу возвращался в меню, после взаимодействия с программой.
 
-            // что-то произошло
             System.out.println("Меню:\n1. Описание.\n2. Сумма страниц всех книг в библиотеке.\n3. Средний рейтинг книг.\n4. Добавить книгу.");
 
             int menu1 = scan.nextInt();
+// Меню:
             switch (menu1){
                 case 1:
                     System.out.println("Введите номер книги от 1 до 4.");
