@@ -11,6 +11,8 @@ public class Library{
 
         Books.greeting();
         while(true){
+
+            // что-то произошло
             System.out.println("Меню:\n1. Описание.\n2. Сумма страниц всех книг в библиотеке.\n3. Средний рейтинг книг.\n4. Добавить книгу.");
 
             int menu1 = scan.nextInt();
