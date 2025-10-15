@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 class Books{
     // Поля класса:
     public static int num;
@@ -9,26 +8,21 @@ class Books{
     private String genre;       // Жанр
     private int pages;          // Количество страниц
     private float rating;       // Рейтинг
-    // Сеттеры:
-    public void setName(String name){this.name = name;}
-    public void setAuthor(String author){this.author = author;}
-    public void setGenre(String genre){this.genre = genre;}
-    public void setPages(int pages){this.pages = pages;}
-    public void setRating(float rating){this.rating = rating;}
+    // Инициализатор:
+    {name = "Название утрачено"; author = "неизвестен"; genre = "неизвестен"; pages = 0; rating = 0;}
     // Геттеры:
-    public String getName(){return name;}
-    public String getAuthor(){return author;}
-    public String getGenre(){return genre;}
     public int getPages(){return pages;}
     public float getRating(){return rating;}
     // Конструкторы:
-    public Books(){text[0] = "Пустая книга. Название утрачено.\n\nАвтор: никто\nЖанр: нет\nСтраниц: 0\nРейтинг: 0\n\n"; num++;}
+    public Books(){num++;}
     public Books(String name, String author, String genre, int pages, float rating){
         this.name = name; this.author = author; this.genre = genre; this.pages = pages; this.rating = rating;
         num++;}
 
+    public String toString(){return name;} // Изменяет текстовое представление объекта.
+
     // Массив строк для вывода на консоль:
-    String[] text = {"\n%s:\n\nАвтор: %s\nЖанр: %s\nСтраниц: %d\nРейтинг: %.1f\n\n",
+    static String[] text = {"\n\nАвтор: %s\nЖанр: %s\nСтраниц: %d\nРейтинг: %.1f\n\n",
             "\nСумма страниц всех книг в библиотеке: ",
             "\nСредний балл книг в библиотеке: "};
 
@@ -36,38 +30,37 @@ class Books{
     Scanner scan = new Scanner(System.in);
     static void greeting(){System.out.printf("В нашей библиотеке хранится %d книг.\n\n",num);}
 
-    void description(){System.out.printf(text[0], name, author, genre, pages, rating);}
+    void description(){System.out.printf(text[0], author, genre, pages, rating);}
 
-    void sumPages(int ...pages){
+    static void sumPages(int ...pages){
         int sum = 0;
         for (int i: pages){sum+=i;}
         System.out.println(text[1] + sum+"\n");
     }
 
-    void averageRating(float ...ratings){
+    static void averageRating(float ...ratings){
         float average = 0;
         for (float a: ratings){average+=a;} average/=ratings.length;
         System.out.printf("%s%.1f\n\n",text[2], average);
     }
 
     void addBook(){
-        String[] text ={"Введите название книги:",
+        String[] text ={
+                "Введите название книги:",
                 "Введите имя автора:",
                 "Введите жанр:",
                 "Введите количество страниц:",
                 "Введите рейтинг по пятибальной шкале:",
                 "\nНовая книга успешно добавлена в библиотеку:"};
-        System.out.println(text[0]);
-        this.name = scan.nextLine();
-        System.out.println(text[1]);
-        this.author = scan.nextLine();
-        System.out.println(text[2]);
-        this.genre = scan.nextLine();
-        System.out.println(text[3]);
-        this.pages = scan.nextInt();
-        System.out.println(text[4]);
-        this.rating = scan.nextFloat();
-        System.out.println(text[5]);
-        description();
+        for(int i = 0; i<6;i++){
+            System.out.println(text[i]);
+            switch(i){
+                case 0: this.name=scan.nextLine(); break;
+                case 1: this.author=scan.nextLine(); break;
+                case 2: this.genre=scan.nextLine(); break;
+                case 3: this.pages=scan.nextInt(); break;
+                case 4: this.rating=scan.nextFloat(); break;
+            }
+        }
     }
 }
