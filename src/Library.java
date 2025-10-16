@@ -10,16 +10,14 @@ public class Library{
         Books book5 = new Books();
 
         Books.greeting();
-        while(true){  // Нужно для того, что бы пользователь сразу возвращался в меню, после взаимодействия с программой.
 
-            System.out.println("Меню:\n1. Список всех книг.\n2. Описание.\n3. Сумма страниц всех книг в библиотеке.\n4. Средний рейтинг книг.\n5. Добавить книгу.");
-
-            int menu1 = scan.nextInt();
+        while(Menu.exit){  // Нужно для того, что бы пользователь сразу возвращался в меню, после взаимодействия с программой.
+            System.out.println(Menu.head1+Menu.points+Menu.separator);
+            int pointSelect = scan.nextInt();
 // Меню:
-            switch (menu1){
-                case 1: System.out.println("\n1. "+book1+"\n2. "+book2+"\n3. "+book3+"\n4. "+book4+"\n5. "+book5+"\n"); break;
-                case 2:
-                    System.out.printf("Введите номер книги от 1 до %d.\n",Books.num);
+            switch (pointSelect){
+                case 1: System.out.print(Menu.head2+"\n1. "+book1+"\n2. "+book2+"\n3. "+book3+"\n4. "+book4+"\n5. "+book5); break;
+                case 2: System.out.printf("Введите номер книги от 1 до %d.\n",Books.sumBooks);
                     int menu2 = scan.nextInt();
                     switch (menu2){
                         case 1: System.out.print(book1+":"); book1.description(); break;
@@ -27,15 +25,16 @@ public class Library{
                         case 3: System.out.print(book3+":"); book3.description(); break;
                         case 4: System.out.print(book4+":"); book4.description(); break;
                         case 5: System.out.print(book5+":"); book5.description(); break;
-                        default: System.out.printf("В нашей библиотеке пока только %d книг.\n\n",Books.num);
+                        default: Menu.error(); System.out.printf("В нашей библиотеке пока только %d книг.\n\n",Books.sumBooks);
                     }
                     break;
                 case 3: Books.sumPages(book1.getPages(), book2.getPages(), book3.getPages(), book4.getPages(), book5.getPages()); break;
                 case 4: Books.averageRating(book1.getRating(), book2.getRating(), book3.getRating(), book4.getRating()); break;
                 case 5: book5.addBook(); System.out.print(book5); book5.description(); break;
-                default: System.out.println("\u001B[31mОшибка\u001B[0m");
+                default: Menu.error();
             }
-            book1.returnTheMenu();
+            Menu menu1 = new Menu();
+            menu1.exitAndReturnTheMenu();
         }
     }
 }
