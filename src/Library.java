@@ -33,8 +33,9 @@ public class Library{
                 case 3: Books.sumPages(book1.getPages(), book2.getPages(), book3.getPages(), book4.getPages(), book5.getPages()); break;
                 case 4: Books.averageRating(book1.getRating(), book2.getRating(), book3.getRating(), book4.getRating()); break;
                 case 5: book5.addBook(); System.out.print(book5); book5.description(); break;
-                default: System.out.println("Ошибка");
+                default: System.out.println("\u001B[31mОшибка\u001B[0m");
             }
+            book1.returnTheMenu();
         }
     }
 }
