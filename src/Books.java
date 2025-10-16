@@ -1,7 +1,7 @@
 import java.util.Scanner;
 class Books extends Statics{
     // Поля класса:
-    public static int num;
+    public static int sumBooks;
     // Поля объектов:
     private String name;        // Название
     private String author;      // Автор
@@ -14,10 +14,10 @@ class Books extends Statics{
     public int getPages(){return pages;}
     public float getRating(){return rating;}
     // Конструкторы:
-    public Books(){num++;}
+    public Books(){sumBooks++;}
     public Books(String name, String author, String genre, int pages, float rating){
         this.name = name; this.author = author; this.genre = genre; this.pages = pages; this.rating = rating;
-        num++;}
+        sumBooks++;}
 
     public String toString(){return name;} // Изменяет текстовое представление объекта.
 
@@ -45,5 +45,4 @@ class Books extends Statics{
             }
         }
     }
-    void returnTheMenu(){System.out.println(text[3]); scan.nextLine();}
 }
