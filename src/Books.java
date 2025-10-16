@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Books{
+class Books extends Statics{
     // Поля класса:
     public static int num;
     // Поля объектов:
@@ -9,7 +9,7 @@ class Books{
     private int pages;          // Количество страниц
     private float rating;       // Рейтинг
     // Инициализатор:
-    {name = "Название утрачено"; author = "неизвестен"; genre = "неизвестен"; pages = 0; rating = 0;}
+    {name = "\u001B[31mНазвание утрачено\u001B[0m"; author = "\u001B[31mнеизвестен\u001B[0m"; genre = "\u001B[31mнеизвестен\u001B[0m"; pages = 0; rating = 0;}
     // Геттеры:
     public int getPages(){return pages;}
     public float getRating(){return rating;}
@@ -21,28 +21,10 @@ class Books{
 
     public String toString(){return name;} // Изменяет текстовое представление объекта.
 
-    // Массив строк для вывода на консоль:
-    static String[] text = {"\n\nАвтор: %s\nЖанр: %s\nСтраниц: %d\nРейтинг: %.1f\n\n",
-            "\nСумма страниц всех книг в библиотеке: ",
-            "\nСредний балл книг в библиотеке: "};
-
     // Методы:
     Scanner scan = new Scanner(System.in);
-    static void greeting(){System.out.printf("В нашей библиотеке хранится %d книг.\n\n",num);}
 
     void description(){System.out.printf(text[0], author, genre, pages, rating);}
-
-    static void sumPages(int ...pages){
-        int sum = 0;
-        for (int i: pages){sum+=i;}
-        System.out.println(text[1] + sum+"\n");
-    }
-
-    static void averageRating(float ...ratings){
-        float average = 0;
-        for (float a: ratings){average+=a;} average/=ratings.length;
-        System.out.printf("%s%.1f\n\n",text[2], average);
-    }
 
     void addBook(){
         String[] text ={
@@ -51,7 +33,7 @@ class Books{
                 "Введите жанр:",
                 "Введите количество страниц:",
                 "Введите рейтинг по пятибальной шкале:",
-                "\nНовая книга успешно добавлена в библиотеку:"};
+                "\n\u001B[32mНовая книга успешно добавлена в библиотеку:\u001B[0m"};
         for(int i = 0; i<6;i++){
             System.out.println(text[i]);
             switch(i){
@@ -63,4 +45,5 @@ class Books{
             }
         }
     }
+    void returnTheMenu(){System.out.println(text[3]); scan.nextLine();}
 }
