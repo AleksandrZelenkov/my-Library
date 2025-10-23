@@ -1,44 +1,29 @@
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Scanner;
 class Books{ // Хранит в себе списки и методы для доступа к их содержимому.
-    ArrayList<String> name   = new ArrayList<String> (List.of("Географ глобус пропил", "Вегетация"         , "Пикник на обочине" , "Братья Карамазовы"));
-    ArrayList<String> author = new ArrayList<String> (List.of("А. Иванов"            , "А.Иванов"          , "Братья Стругацкие" , "Ф. Достоевский"   ));
-    ArrayList<String> genre  = new ArrayList<String> (List.of("роман"                , "научная фантастика", "научная фантастика", "роман"            ));
-    ArrayList<Integer>pages  = new ArrayList<Integer>(List.of( 992                   ,  536                ,  256                ,  992               ));
-    ArrayList<Float>  rating = new ArrayList<Float>  (List.of( 4.9f                  ,  4.7f               ,  4.3f               ,  4.9f              ));
+    // Поля:
+    private String name;        // Название
+    private String author;      // Автор
+    private String genre;       // Жанр
+    private int pages;          // Количество страниц
+    private float rating;       // Рейтинг
+    // Конструктор:
+    public Books(){}
+    public Books(String name, String author, String genre, int pages, float rating){
+        this.name = name; this.author = author; this.genre = genre; this.pages = pages; this.rating = rating;}
     //Геттеры:
-    protected String getName  (int num){return name.get(num);}
-    protected String getAuthor(int num){return author.get(num);}
-    protected String getGenre (int num){return genre.get(num);}
-    protected int    getPages (int num){return pages.get(num);}
-    protected float  getRating(int num){return rating.get(num);}
-    protected int    getSize  ()       {return name.size();}
-    // Сеттеры:
-    protected boolean setName  (String newName)  {return name.add(newName);}
-    protected boolean setAuthor(String newAuthor){return author.add(newAuthor);}
-    protected boolean setGenre (String newGenre) {return genre.add(newGenre);}
-    protected boolean setPages (int    newPages) {return pages.add(newPages);}
-    protected boolean setRating(float  newRating){return rating.add(newRating);}
+    protected String getName  (){return name;}
+    protected String getAuthor(){return author;}
+    protected String getGenre (){return genre;}
+    protected int    getPages (){return pages;}
+    protected float  getRating(){return rating;}
 
-    protected void listOfOllBooks(){
-        for(String names: name){System.out.print("\n"+(1+name.indexOf(names))+". "+names);}
-    }
-    protected void description(int numBook){
-        numBook-=1;
-        System.out.printf(Menu.descriptionBody, getName(numBook), getAuthor(numBook), getGenre(numBook), getPages(numBook), getRating(numBook));
-    }
-    protected void sumPages(){
-        int sumPages = 0;
-        for(int i: pages){sumPages += i;}
-        System.out.print(Menu.SUM_PAGES +"\n"+sumPages+"\n\n\n\n");
-    }
-    protected void averageRating(){
-        int sumRating = 0;
-        for(int i: pages){sumRating += i;}
-        System.out.print(Menu.AVERAGE_RATING+"\n"+sumRating/rating.size()+"\n\n\n\n");
-    }
+    // Сеттеры:
+    protected void setName (String newName)  {this.name = newName;}
+    protected void setAuthor(String newAuthor){this.author = newAuthor;}
+    protected void setGenre (String newGenre) {this.genre = newGenre;}
+    protected void setPages (int    newPages) {this.pages = newPages;}
+    protected void setRating(float  newRating){this.rating = newRating;}
 
     List<String> addBookText = List.of(
             "\nВведите название книги:  ",
@@ -51,14 +36,14 @@ class Books{ // Хранит в себе списки и методы для д�
     Scanner scan = new Scanner(System.in);
 
     protected void addBook(){
-        System.out.print(Menu.ADD_BOOK);
+        System.out.print("");
         for(int i = 0; i < 6; i++){System.out.print(addBookText.get(i));
             switch(i){
-                case 0: name.add(scan.nextLine());  break;
-                case 1: author.add(scan.nextLine()); break;
-                case 2: genre.add(scan.nextLine()); break;
-                case 3: pages.add(scan.nextInt());    break;
-                case 4: rating.add(scan.nextFloat()); break;
+                case 0: setName(scan.nextLine());  break;
+                case 1: setAuthor(scan.nextLine()); break;
+                case 2: setGenre(scan.nextLine()); break;
+                case 3: setPages(scan.nextInt());    break;
+                case 4: setRating(scan.nextFloat()); break;
             }
         }
     }
