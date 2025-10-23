@@ -20,7 +20,6 @@ class Menu{ // Хранит в себе все элементы меню и ме
             "\n5. Добавить книгу.                            ";
     private   static final String SEPARATOR           =                                 "\n——————————————————————————————————————————————";
     private   static final String returnMenu          =                                 "\n1. Вернуться в меню  ↩|2. Завершение работы ⬅";
-    private   static final String exit                =                                 "\n2. Завершение работы ⬅                        ";
     protected static final String SUM_PAGES           = WHITE_BACKGRAUND + BLACK_TEXT +   "Сумма страниц всех книг в библиотеке:         "+RESET_COLOR;
     protected static final String AVERAGE_RATING      = WHITE_BACKGRAUND + BLACK_TEXT +   "Средний рейтинг книг в библиотеке:            "+RESET_COLOR;
     protected static final String ADD_BOOK            = WHITE_BACKGRAUND + BLACK_TEXT +   "Добавление книги:                             "+RESET_COLOR;
