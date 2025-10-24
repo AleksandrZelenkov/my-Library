@@ -17,10 +17,10 @@ public class MyLibrary3_0 {
             int selectMenuPoint_0 = scan.nextInt();
             switch (selectMenuPoint_0){
                 case 1: aB.allBooksFinal(); break;
-                case 2: aB.description();
-                case 3: aB.sumPages();
-                case 4:
-                case 5:
+                case 2: aB.description(); break;
+                case 3: aB.sumPages(); break;
+                case 4: aB.averageRating(); break;
+                case 5: aB.addBook(); break;
                 default:
             }
         } while(menu.subMenu());

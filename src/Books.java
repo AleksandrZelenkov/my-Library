@@ -25,26 +25,6 @@ class Books{ // Хранит в себе списки и методы для д�
     protected void setPages (int    newPages) {this.pages = newPages;}
     protected void setRating(float  newRating){this.rating = newRating;}
 
-    List<String> addBookText = List.of(
-            "\nВведите название книги:  ",
-            "Введите имя автора:    ",
-            "Введите жанр:  ",
-            "Введите количество страниц:    ",
-            "Введите рейтинг по пятибальной шкале:  ",
-            "\n\u001B[32mНовая книга успешно добавлена в библиотеку.\u001B[0m");
-
     Scanner scan = new Scanner(System.in);
 
-    protected void addBook(){
-        System.out.print("");
-        for(int i = 0; i < 6; i++){System.out.print(addBookText.get(i));
-            switch(i){
-                case 0: setName(scan.nextLine());  break;
-                case 1: setAuthor(scan.nextLine()); break;
-                case 2: setGenre(scan.nextLine()); break;
-                case 3: setPages(scan.nextInt());    break;
-                case 4: setRating(scan.nextFloat()); break;
-            }
-        }
-    }
 }

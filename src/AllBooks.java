@@ -18,5 +18,23 @@ class AllBooks {
 
     protected void sumPages(){Menu.headSumPages(); int sumPages =0; for(Books i: books){sumPages += i.getPages();} Menu.sumPagesBody(sumPages);}
 
-    protected void averageRating(){}
+    protected void averageRating(){Menu.headAverageRating();
+        float averageRating =0; for(Books i: books){averageRating += i.getRating();}
+        averageRating /= books.size();
+        Menu.averageRatingBody(averageRating);
+    }
+    protected void addBook(){
+        System.out.print("");
+        String name = null; String author = null; String genre = null; int pages = 0; float rating = 0;
+        for(int i = 0; i < 6; i++){System.out.print(menu.addBookText.get(i));
+            switch(i){
+                case 0: name = scan.nextLine();  break;
+                case 1: author = scan.nextLine(); break;
+                case 2: genre = scan.nextLine(); break;
+                case 3: pages = (scan.nextInt());    break;
+                case 4: rating = scan.nextFloat(); break;
+            }
+        }
+        books.add(new Books(name, author, genre, pages, rating));
+    }
 }

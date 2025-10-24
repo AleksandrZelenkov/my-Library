@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 class Menu{ // Хранит в себе все элементы меню и методы для вывода их в консоль.
     // Colors:
@@ -27,6 +28,15 @@ class Menu{ // Хранит в себе все элементы меню и ме
 
     private static final String DESCRIPLION_BODY    = "\nНазвание:               %s\nАвтор:                  %s\nЖанр:                   %s\nКоличество страниц:     %d\nРейтинг:                %.1f";
     private static final String SUM_PAGES_BODY      = "\n\n\n%d\n\n";
+    private static final String AVERAGE_RATING_BODY = "\n\n\n%.1f\n\n";
+    List<String> addBookText = List.of(
+            "\nВведите название книги:  ",
+            "Введите имя автора:    ",
+            "Введите жанр:  ",
+            "Введите количество страниц:    ",
+            "Введите рейтинг по пятибальной шкале:  ",
+            "\n\u001B[32mНовая книга успешно добавлена в библиотеку.\u001B[0m");
+
     Scanner scan = new Scanner(System.in);
     Books book = new Books();
     protected static void menu(){System.out.println(HEAD_MENU+POINTS+EMPTY_SUB_MENU);}
@@ -37,6 +47,7 @@ class Menu{ // Хранит в себе все элементы меню и ме
     protected static void headSumPages(){System.out.print(HEAD_SUM_PAGES);}
     protected static void headAverageRating(){System.out.print(HEAD_AVERAGE_RATING);}
 
+    protected static void averageRatingBody(float averageRating){System.out.printf(AVERAGE_RATING_BODY,averageRating);}
     protected        void descriptionBody(Books books){System.out.printf(DESCRIPLION_BODY, books.getName(), books.getAuthor(), books.getGenre(), books.getPages(), books.getRating());}
     protected static void sumPagesBody(int sumPages){System.out.printf(SUM_PAGES_BODY,sumPages);}
     protected static void emptySubMenu(){System.out.println(EMPTY_SUB_MENU);}
