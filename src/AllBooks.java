@@ -23,6 +23,7 @@ class AllBooks {
         averageRating /= books.size();
         Menu.averageRatingBody(averageRating);
     }
+
     protected void addBook(){
         System.out.print("");
         String name = null; String author = null; String genre = null; int pages = 0; float rating = 0;

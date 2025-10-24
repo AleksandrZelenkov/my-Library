@@ -38,7 +38,6 @@ class Menu{ // Хранит в себе все элементы меню и ме
             "\n\u001B[32mНовая книга успешно добавлена в библиотеку.\u001B[0m");
 
     Scanner scan = new Scanner(System.in);
-    Books book = new Books();
     protected static void menu(){System.out.println(HEAD_MENU+POINTS+EMPTY_SUB_MENU);}
 
     protected static void headAllBooks(){System.out.print(HEAD_ALL_BOOKS);}

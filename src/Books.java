@@ -8,7 +8,6 @@ class Books{ // Хранит в себе списки и методы для д�
     private int pages;          // Количество страниц
     private float rating;       // Рейтинг
     // Конструктор:
-    public Books(){}
     public Books(String name, String author, String genre, int pages, float rating){
         this.name = name; this.author = author; this.genre = genre; this.pages = pages; this.rating = rating;}
     //Геттеры:
@@ -17,14 +16,4 @@ class Books{ // Хранит в себе списки и методы для д�
     protected String getGenre (){return genre;}
     protected int    getPages (){return pages;}
     protected float  getRating(){return rating;}
-
-    // Сеттеры:
-    protected void setName (String newName)  {this.name = newName;}
-    protected void setAuthor(String newAuthor){this.author = newAuthor;}
-    protected void setGenre (String newGenre) {this.genre = newGenre;}
-    protected void setPages (int    newPages) {this.pages = newPages;}
-    protected void setRating(float  newRating){this.rating = newRating;}
-
-    Scanner scan = new Scanner(System.in);
-
 }
