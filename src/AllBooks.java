@@ -25,7 +25,7 @@ class AllBooks {
     }
 
     protected void addBook(){
-        System.out.print("");
+        Menu.headAddBook();
         String name = null; String author = null; String genre = null; int pages = 0; float rating = 0;
         for(int i = 0; i < 6; i++){System.out.print(menu.addBookText.get(i));
             switch(i){

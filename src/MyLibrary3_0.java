@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class MyLibrary3_0 {
     public static void main(String[] args) {
+        boolean tumbler = false;
         Scanner scan = new Scanner(System.in);
         Menu menu = new Menu();
 
@@ -12,8 +13,10 @@ public class MyLibrary3_0 {
         books.add(new Books("Пикник на обочине","Братья Стругацкие","научная фантастика",256,4.3f));
         books.add(new Books("Братья Карамазовы","Ф. Достоевкий","роман",992,4.9f));
         AllBooks aB = new AllBooks(books);
-        do{
-            Menu.menu();
+
+        do{if(tumbler){ menu.mistakeMenu();} else Menu.menu();
+            tumbler = false;
+
             int selectMenuPoint_0 = scan.nextInt();
             switch (selectMenuPoint_0){
                 case 1: aB.allBooksFinal(); break;
@@ -21,8 +24,8 @@ public class MyLibrary3_0 {
                 case 3: aB.sumPages(); break;
                 case 4: aB.averageRating(); break;
                 case 5: aB.addBook(); break;
-                default:
+                default: tumbler = true;
             }
-        } while(menu.subMenu());
+        } while(tumbler||menu.subMenu());
     }
 }
