@@ -1,5 +1,7 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.File;
 class AllBooks {
     Scanner scan = new Scanner(System.in);
     ArrayList<Books> books;
@@ -37,5 +39,15 @@ class AllBooks {
             }
         }
         books.add(new Books(name, author, genre, pages, rating));
+    }
+    protected void content() throws FileNotFoundException { menu.headBookSelection(books.size()); allBooks(); Menu.emptySubMenu();
+        int bookSelect = scan.nextInt();
+        Menu.headBriefContent();
+        File file = new File(books.get(bookSelect-1).getBriefContent());
+        Scanner scan = new Scanner(file);
+        ArrayList<String> content = new ArrayList<>();
+        while(scan.hasNextLine()){content.add(scan.nextLine());}
+
+        menu.briefContentBody(content);
     }
 }

@@ -7,13 +7,18 @@ class Books{ // Хранит в себе списки и методы для д�
     private String genre;       // Жанр
     private int pages;          // Количество страниц
     private float rating;       // Рейтинг
-    // Конструктор:
+    private String briefContent;// Название файла с кратким содержанием
+    // Конструкторы:
     public Books(String name, String author, String genre, int pages, float rating){
         this.name = name; this.author = author; this.genre = genre; this.pages = pages; this.rating = rating;}
+
+    public Books(String name, String author, String genre, int pages, float rating, String briefContent){
+        this.name = name; this.author = author; this.genre = genre; this.pages = pages; this.rating = rating; this.briefContent = briefContent;}
     //Геттеры:
     protected String getName  (){return name;}
     protected String getAuthor(){return author;}
     protected String getGenre (){return genre;}
     protected int    getPages (){return pages;}
     protected float  getRating(){return rating;}
+    protected String getBriefContent(){return briefContent;}
 }
