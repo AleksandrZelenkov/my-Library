@@ -7,6 +7,7 @@ class Menu{ // Хранит в себе все элементы меню и ме
     private static final String BLACK_TEXT       = "\u001B[30m";
     private static final String WHITE_BACKGROUND = "\u001B[47m";
     private static final String RED_TEXT         = "\u001B[31m";
+    private static final String GREEN_TEXT       = "\u001B[32m";
     // Heads:
     private static final String HEAD_MENU           = WHITE_BACKGROUND + BLACK_TEXT+    "Меню:                                      \uD83D\uDCDA "+RESET_COLOR;
     private static final String HEAD_BOOK_SELECTION = WHITE_BACKGROUND + BLACK_TEXT +   "Введите номер книги от 1 до %d.               "+RESET_COLOR;
@@ -31,13 +32,15 @@ class Menu{ // Хранит в себе все элементы меню и ме
     private static final String DESCRIPTION_BODY    = "\nНазвание:               %s\nАвтор:                  %s\nЖанр:                   %s\nКоличество страниц:     %d\nРейтинг:                %.1f";
     private static final String SUM_PAGES_BODY      = "\n\n\n%d\n\n";
     private static final String AVERAGE_RATING_BODY = "\n\n\n%.1f\n\n";
-    List<String> addBookText = List.of(
+    private static final String ADD_BOOK_TEXT       = GREEN_TEXT + "Новая книга успешно добавлена в библиотеку." + RESET_COLOR;
+    private static final String NOT_ADD_BOOK_TEXT   = RED_TEXT + "Книга \"%s\" уже есть в нашей библиотеке." + RESET_COLOR;
+
+    List<String> pointsAddBookText = List.of(
             "\nВведите название книги:  ",
             "Введите имя автора:    ",
             "Введите жанр:  ",
             "Введите количество страниц:    ",
-            "Введите рейтинг по пятибальной шкале:  ",
-            "\n\u001B[32mНовая книга успешно добавлена в библиотеку.\u001B[0m");
+            "Введите рейтинг по пятибальной шкале:  ");
 
     Scanner scan = new Scanner(System.in);
     protected static void menu(){System.out.println(HEAD_MENU+POINTS+EMPTY_SUB_MENU);}
@@ -56,6 +59,9 @@ class Menu{ // Хранит в себе все элементы меню и ме
     protected static void sumPagesBody(int sumPages){System.out.printf(SUM_PAGES_BODY,sumPages);}
     protected static void emptySubMenu(){System.out.println(EMPTY_SUB_MENU);}
     protected        void briefContentBody(ArrayList<String> content){for(String string : content){System.out.println(string);}}
+    protected static void addBookText(){System.out.print(ADD_BOOK_TEXT);}
+    protected static void notNotAddBookText(String name){System.out.printf(NOT_ADD_BOOK_TEXT,name);
+    }
 
     protected boolean subMenu(){boolean exit = true;
         System.out.println(SUB_MENU);

@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyLibrary3_0 {
@@ -18,16 +19,16 @@ public class MyLibrary3_0 {
         do{if(tumbler){ menu.mistakeMenu();} else Menu.menu();
             tumbler = false;
 
-            int selectMenuPoint_0 = scan.nextInt();
-            switch (selectMenuPoint_0){
-                case 1: aB.allBooksFinal(); break;
-                case 2: aB.description(); break;
-                case 3: aB.sumPages(); break;
-                case 4: aB.averageRating(); break;
-                case 5: aB.addBook(); break;
-                case 6: aB.content(); break;
-                default: tumbler = true;
-            }
+                int selectMenuPoint_0 = scan.nextInt();
+                switch (selectMenuPoint_0) {
+                    case 1: aB.allBooksFinal(); break;
+                    case 2: aB.description(); break;
+                    case 3: aB.sumPages(); break;
+                    case 4: aB.averageRating(); break;
+                    case 5: aB.addBook(); break;
+                    case 6: aB.content(); break;
+                    default: tumbler = true;
+                }
         } while(tumbler||menu.subMenu());
     }
 }
